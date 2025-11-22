@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snowcap Safaris — Kimana | Vehicle Hire</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root{
+      --deep-green:#164023;
+      --golden:#E9C46A;
+      --sunset:#F4A261;
+      --smoke:#F9F9F9;
+      --charcoal:#111111;
+      --kilimanjaro:#4EA9FF;
+      --glass: rgba(255,255,255,0.08);
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0;background:linear-gradient(180deg,#f7fbff 0%, #fff 100%);color:#111}
+    header{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    /* hero background */
+    .hero-bg{position:absolute;inset:0;background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');background-size:cover;background-position:center;filter:brightness(0.55) saturate(1.05)}
+    /* subtle animated fog */
+    .fog{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(255,255,255,0.04));pointer-events:none}
+    nav{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:95%;max-width:var(--max-width);display:flex;justify-content:space-between;align-items:center;color:var(--smoke)}
+    .brand{display:flex;align-items:center;gap:12px;color:var(--smoke);text-shadow:0 2px 8px rgba(0,0,0,0.4)}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--kilimanjaro),var(--deep-green));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;box-shadow:0 6px 20px rgba(22,64,35,0.5)}
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .cta{background:var(--sunset);padding:10px 14px;border-radius:10px;color:#111;font-weight:700;box-shadow:0 6px 18px rgba(244,162,97,0.15)}
+
+    .hero-content{position:relative;z-index:5;max-width:1100px;padding:40px;text-align:left;display:flex;gap:30px;align-items:center}
+    .hero-left{flex:1;color:white}
+    .eyebrow{display:inline-block;background:rgba(255,255,255,0.07);padding:8px 12px;border-radius:999px;margin-bottom:18px}
+    h1{font-size:clamp(28px,5vw,52px);line-height:1.02;margin:0 0 12px;font-weight:800}
+    .typing{color:var(--golden);display:inline-block}
+    p.lead{opacity:0.95;margin:8px 0 22px;font-weight:500}
+    .hero-actions{display:flex;gap:12px}
+
+    /* car cards section */
+    .section{padding:60px 20px;background:transparent}
+    .wrap{max-width:var(--max-width);margin:0 auto}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(17,17,17,0.08);transform:translateY(0);transition:transform .35s ease,box-shadow .35s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(17,17,17,0.12)}
+    .card img{width:100%;height:160px;object-fit:cover}
+    .card-body{padding:16px}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .price{font-weight:800;color:var(--deep-green)}
+    .feat{font-size:13px;color:#666}
+    .book-btn{margin-top:12px;display:inline-block;padding:10px 12px;border-radius:8px;background:linear-gradient(90deg,var(--kilimanjaro),var(--deep-green));color:white;font-weight:700;text-decoration:none}
+
+    /* destinations */
+    .dest-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .dest{position:relative;border-radius:12px;overflow:hidden;min-height:160px}
+    .dest img{width:100%;height:100%;object-fit:cover}
+    .dest .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.35));display:flex;align-items:flex-end;padding:14px;color:white;font-weight:700}
+
+    /* why choose */
+    .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+    .chip{background:linear-gradient(180deg,rgba(255,255,255,0.9),white);padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.06);text-align:center}
+
+    /* contact */
+    .contact{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start}
+    form{background:white;padding:18px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06)}
+    label{display:block;font-size:13px;margin-bottom:6px;color:#333}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:12px;font-size:15px}
+    button.submit{background:var(--deep-green);color:white;padding:12px 14px;border-radius:10px;border:0;font-weight:700}
+
+    /* footer */
+    footer{background:var(--charcoal);color:white;padding:24px}
+    .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:var(--max-width);margin:0 auto}
+
+    /* responsive */
+    @media (max-width:900px){
+      .contact{grid-template-columns:1fr}
+      nav{top:12px}
+      .hero-content{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="fog" aria-hidden="true"></div>
+    <nav>
+      <div class="brand" data-aos="fade-down"><div class="logo">SS</div><div>
+        <div style="font-weight:800">Snowcap Safaris</div>
+        <div style="font-size:12px;opacity:0.9">Kimana • Amboseli</div>
+      </div></div>
+      <div class="nav-links" data-aos="fade-down" data-aos-delay="80">
+        <a href="#vehicles" style="color:var(--smoke);text-decoration:none;font-weight:600">Vehicles</a>
+        <a href="#destinations" style="color:var(--smoke);text-decoration:none;font-weight:600">Destinations</a>
+        <a href="#contact" class="cta">Call: <a href="tel:+254719568205" style="color:#111;text-decoration:none;margin-left:8px">+254 719 568 205</a></a>
+      </div>
+    </nav>
+
+    <div class="hero-content wrap">
+      <div class="hero-left" data-aos="zoom-in">
+        <div class="eyebrow">Comfort • Adventure • Reliable</div>
+        <h1>Explore Amboseli with comfort — <span class="typing" id="typed">Hire a car today</span></h1>
+        <p class="lead">Snowcap Safaris offers well-serviced safari vehicles and experienced drivers for tours around Kimana and Amboseli. Book a reliable ride and enjoy the views of Mt. Kilimanjaro.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="cta" style="text-decoration:none;padding:12px 16px;">Book a Car</a>
+          <a href="tel:+254719568205" class="cta" style="background:linear-gradient(90deg,var(--kilimanjaro),var(--golden));">Call Now</a>
+        </div>
+      </div>
+      <div class="hero-right" data-aos="fade-left" style="flex:0 0 360px">
+        <div style="background:rgba(255,255,255,0.95);padding:14px;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.12)">
+          <strong style="display:block;margin-bottom:8px">Featured vehicle</strong>
+          <img src="images/lancruiser.jpg.jpg" alt="Landcruiser" style="width:80%;border-radius:10px;display:block;margin-bottom:10px">
+
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:800">Toyota Land Cruiser</div>
+              <div style="font-size:13px;color:#666">Seats: 7 • Fuel: Diesel</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;color:var(--deep-green)">KSH 9,500 / day</div>
+              <a href="#contact" class="book-btn" style="display:inline-block;margin-top:8px">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="vehicles" class="section">
+      <div class="wrap">
+        <h2 data-aos="fade-up">Vehicles for Hire</h2>
+        <p data-aos="fade-up" data-aos-delay="60">Choose from our reliable fleet — perfect for Amboseli safaris and transfers around Kimana.</p>
+        <div class="cards" style="margin-top:18px">
+          <div class="card" data-aos="fade-up">
+            <img src="images/lancruiser.jpg.jpg" alt="Landcruiser" style="width:80%;border-radius:10px;display:block;margin-bottom:10px">
+            <div class="card-body">
+              <div class="meta"><div class="title">Toyota Land Cruiser(Safari)</div><div class="price">KSH 9,500</div></div>
+              <div class="feat">Seats: 7 • Fuel: Diesel • AC</div>
+              <a href="#contact" class="book-btn">Book Now</a>
+            </div>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="80">
+            <img src="images/Toyota-Prado.jpg.jpg" alt="Landcruiser" style="width:80%;border-radius:10px;display:block;margin-bottom:10px">
+            <div class="card-body">
+              <div class="meta"><div class="title">Toyota Prado TX/TZ</div><div class="price">KSH 7,500</div></div>
+              <div class="feat">Seats: 5 • Fuel: Petrol • Comfortable</div>
+              <a href="#contact" class="book-btn">Book Now</a>
+            </div>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="120">
+            <img src="images/safari-van.jpg.jpg" alt="Landcruiser" style="width:80%;border-radius:10px;display:block;margin-bottom:10px">
+            <div class="card-body">
+              <div class="meta"><div class="title">Safari Van</div><div class="price">KSH 6,000</div></div>
+              <div class="feat">Seats: 10 • Fuel: Diesel • Guide available</div>
+              <a href="#contact" class="book-btn">Book Now</a>
+            </div>
+          </div>
+
+          <div class="card" data-aos="fade-up" data-aos-delay="160">
+            <img src="images/Noah-Alphard.jpg.jpg" alt="Landcruiser" style="width:80%;border-radius:10px;display:block;margin-bottom:10px">
+            <div class="card-body">
+              <div class="meta"><div class="title">Toyota Noah / Alphard</div><div class="price">KSH 5,000</div></div>
+              <div class="feat">Seats: 7 • Fuel: Petrol • Great for transfers</div>
+              <a href="#contact" class="book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinations" class="section" style="background:linear-gradient(180deg,rgba(78,169,255,0.03),transparent)">
+      <div class="wrap">
+        <h2 data-aos="fade-up">Safari Destinations Around Kimana</h2>
+        <p data-aos="fade-up" data-aos-delay="40">Explore Amboseli, Kimana Sanctuary and local spots — our drivers know the best routes.</p>
+        <div class="dest-grid" style="margin-top:18px">
+          <div class="dest" data-aos="fade-right"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Amboseli"><div class="overlay">Amboseli National Park</div></div>
+          <div class="dest" data-aos="fade-left"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=60" alt="Kimana"><div class="overlay">Kimana Sanctuary</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 data-aos="fade-up">Why Choose Snowcap Safaris</h2>
+        <div class="why" style="margin-top:18px">
+          <div class="chip" data-aos="zoom-in">Trusted Drivers<br><small style="opacity:0.7">Local guides with experience</small></div>
+          <div class="chip" data-aos="zoom-in" data-aos-delay="60">Well Serviced Cars<br><small style="opacity:0.7">Safety first</small></div>
+          <div class="chip" data-aos="zoom-in" data-aos-delay="120">Affordable Rates<br><small style="opacity:0.7">Clear pricing</small></div>
+          <div class="chip" data-aos="zoom-in" data-aos-delay="180">24/7 Support<br><small style="opacity:0.7">Call: +254 719 568 205</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="padding-top:30px;padding-bottom:80px;background:transparent">
+      <div class="wrap">
+        <h2 data-aos="fade-up">Contact & Booking</h2>
+        <div class="contact" style="margin-top:18px">
+          <div data-aos="fade-up">
+            <form id="bookingForm">
+              <label for="name">Full name</label>
+              <input id="name" name="name" required placeholder="Your name">
+
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" required placeholder="e.g. +2547..." value="+254719568205">
+
+              <label for="pickup">Pickup location</label>
+              <input id="pickup" name="pickup" placeholder="Kimana Town / Amboseli gate" required>
+
+              <label for="vehicle">Vehicle type</label>
+              <select id="vehicle" name="vehicle">
+                <option>Toyota Land Cruiser</option>
+                <option>Toyota Prado</option>
+                <option>Safari Van</option>
+                <option>Noah / Alphard</option>
+              </select>
+
+              <label for="date">Pickup date</label>
+              <input id="date" name="date" type="date" required>
+
+              <label for="notes">Additional notes</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Any requests..."></textarea>
+
+              <button type="submit" class="submit">Send Booking Request</button>
+            </form>
+
+            <div id="msg" style="margin-top:12px"></div>
+          </div>
+
+          <aside data-aos="fade-left">
+            <div style="background:white;padding:14px;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,0.06)">
+              <h3 style="margin-top:0">Contact</h3>
+              <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+254719568205">+254 719 568 205</a></p>
+              <p style="margin:6px 0"><strong>Email:</strong> info@snowcapsafaris.co.ke</p>
+              <p style="margin:6px 0"><strong>Location:</strong> Kimana Town, near Amboseli</p>
+              <div style="margin-top:12px;overflow:hidden;border-radius:8px">
+                <!-- Map: simple google maps embed to Kimana -->
+                <iframe title="Kimana map" src="https://www.google.com/maps?q=Kimana%20Kenya&output=embed" style="width:100%;height:240px;border:0" loading="lazy"></iframe>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <div style="font-weight:800">Snowcap Safaris</div>
+        <div style="opacity:0.8;margin-top:6px">Kimana • Amboseli</div>
+      </div>
+      <div style="text-align:right">
+        <div>Call: <a href="tel:+254719568205" style="color:white;text-decoration:none">+254 719 568 205</a></div>
+        <div style="font-size:12px;opacity:0.8;margin-top:6px">© Snowcap Safaris — All rights reserved</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:800,once:true});
+
+    // small typing effect
+    (function(){
+      const el = document.getElementById('typed');
+      const words = ['Hire a car today','Drive through Amboseli','Explore with a trusted driver'];
+      let i=0, idx=0, forward=true;
+      function step(){
+        const w = words[i];
+        if(forward){ idx++; if(idx> w.length){forward=false;setTimeout(step,1200);return} }
+        else{ idx--; if(idx===0){forward=true;i=(i+1)%words.length} }
+        el.textContent = w.slice(0,idx);
+        setTimeout(step, forward?90:60);
+      }
+      step();
+    })();
+
+    // booking form handler (simple, client-side)
+    document.getElementById('bookingForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      const data = new FormData(this);
+      const msg = document.getElementById('msg');
+      // here you would send to server or WhatsApp API. For now we open WhatsApp with prefilled message
+      const text = `Booking request from ${data.get('name')}\nPhone: ${data.get('phone')}\nPickup: ${data.get('pickup')}\nVehicle: ${data.get('vehicle')}\nDate: ${data.get('date')}\nNotes: ${data.get('notes')}`;
+      const phone = '254719568205';
+      const wa = `https://wa.me/${phone}?text=`+encodeURIComponent(text);
+      msg.innerHTML = 'Opening WhatsApp to send your booking...';
+      window.open(wa,'_blank');
+    });
+  </script>
+</body>
+</html>
