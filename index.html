@@ -126,7 +126,7 @@ img {
         <p class="lead">Snowcap Safaris offers well-serviced safari vehicles and experienced drivers for tours around Kimana and Amboseli. Book a reliable ride and enjoy the views of Mt. Kilimanjaro.</p>
         <div class="hero-actions">
           <a href="#contact" class="cta" style="text-decoration:none;padding:12px 16px;">Book a Car</a>
-          <a href="tel:+254719568205" class="cta" style="background:linear-gradient(90deg,var(--kilimanjaro),var(--golden));">Call Now</a>
+          <a href="tel:+254781148433" class="cta" style="background:linear-gradient(90deg,var(--kilimanjaro),var(--golden));">Call Now</a>
         </div>
       </div>
       <div class="hero-right" data-aos="fade-left" style="flex:0 0 360px">
@@ -227,7 +227,7 @@ img {
               <input id="name" name="name" required placeholder="Your name">
 
               <label for="phone">Phone number</label>
-              <input id="phone" name="phone" required placeholder="e.g. +2547..." value="+254719568205">
+              <input id="phone" name="phone" required placeholder="e.g. +2547..." value="+254781148433">
 
               <label for="pickup">Pickup location</label>
               <input id="pickup" name="pickup" placeholder="Kimana Town / Amboseli gate" required>
@@ -255,7 +255,7 @@ img {
           <aside data-aos="fade-left">
             <div style="background:white;padding:14px;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,0.06)">
               <h3 style="margin-top:0">Contact</h3>
-              <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+254719568205">+254 719 568 205</a></p>
+              <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+254781148433">+254781148433</a></p>
               <p style="margin:6px 0"><strong>Email:</strong> info@snowcapsafaris.co.ke</p>
               <p style="margin:6px 0"><strong>Location:</strong> Kimana Town, near Amboseli</p>
               <div style="margin-top:12px;overflow:hidden;border-radius:8px">
@@ -276,7 +276,7 @@ img {
         <div style="opacity:0.8;margin-top:6px">Kimana • Amboseli</div>
       </div>
       <div style="text-align:right">
-        <div>Call: <a href="tel:+254719568205" style="color:white;text-decoration:none">+254 719 568 205</a></div>
+        <div>Call: <a href="tel:+254781148433" style="color:white;text-decoration:none">+254781148433</a></div>
         <div style="font-size:12px;opacity:0.8;margin-top:6px">© Snowcap Safaris — All rights reserved</div>
       </div>
     </div>
@@ -308,7 +308,7 @@ img {
       const msg = document.getElementById('msg');
       // here you would send to server or WhatsApp API. For now we open WhatsApp with prefilled message
       const text = `Booking request from ${data.get('name')}\nPhone: ${data.get('phone')}\nPickup: ${data.get('pickup')}\nVehicle: ${data.get('vehicle')}\nDate: ${data.get('date')}\nNotes: ${data.get('notes')}`;
-      const phone = '254719568205';
+      const phone = '+254781148433';
       const wa = `https://wa.me/${phone}?text=`+encodeURIComponent(text);
       msg.innerHTML = 'Opening WhatsApp to send your booking...';
       window.open(wa,'_blank');
@@ -316,4 +316,5 @@ img {
   </script>
 </body>
 </html>
+
 
