@@ -73,6 +73,28 @@
     footer{background:var(--charcoal);color:white;padding:24px}
     .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:var(--max-width);margin:0 auto}
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap; /* allows content to stack on small screens */
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+@media(max-width: 600px){
+  .hero-left, .hero-right { flex: 1 1 100%; text-align: center; }
+  .book-btn { width: 100%; text-align: center; }
+}
+
+
     /* responsive */
     @media (max-width:900px){
       .contact{grid-template-columns:1fr}
@@ -294,4 +316,3 @@
   </script>
 </body>
 </html>
-
